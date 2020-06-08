@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <img src="assets/icons/Logo.svg">
+  <a mat-button (click)="makeUserButtonInactive()">
+    <img src="assets/icons/ico_dashboard.svg">
+    <span class="space"> Dashboard </span>
+  </a>
+  <a mat-button (click)="openUsersDialog()" *ngIf="userButton === true">
+    <img src="assets/icons/ico_users.svg">
+      <span class="space" style="color: #daa95a;" > Users </span>
+  </a>
+  <a mat-button (click)="openUsersDialog()" *ngIf="userButton === false">
+    <img src="assets/icons/ico_user_inactive.svg">
+      <span class="space" > Users </span>
+  </a>
+  <a mat-button (click)="makeUserButtonInactive()">
+    <img src="assets/icons/ico_sessionmanager.svg">
+    <span class="space"> Session Manager </span>
+  </a>
+
+  <div class="align-right"></div>
+
+  <a mat-button>
+    <img src="assets/icons/ico_notification.svg">
+  </a>
+  <a mat-button>
+    <img src="assets/icons/ico_user.svg">
+    <span class="space"> John Smith </span>
+    <img src="assets/icons/ico_downarrow.svg">
+  </a>
+</mat-toolbar>

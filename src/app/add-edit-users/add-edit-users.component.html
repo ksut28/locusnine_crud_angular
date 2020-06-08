@@ -1,0 +1,31 @@
+<div style="padding-left: 23px;">
+    <h2 mat-dialog-title class="form-width">{{title}}</h2>
+    <!-- Name of User -->
+    <mat-form-field appearance="outline" class="form-width">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="service.user.name" matInput>
+    </mat-form-field>
+    <br>
+    <!-- Email of User -->
+    <mat-form-field appearance="outline" class="form-width">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="service.user.email" matInput>
+    </mat-form-field>
+    <br>
+    <!-- Role Type -->
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="service.user.roleType">
+        <mat-radio-button style="padding-right: 40px;" *ngFor="let role of roleTypes" [value]="role">
+            {{role}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <br><br>
+    <!-- Mobile Number -->
+    <mat-form-field appearance="outline" class="form-width">
+        <mat-label>Mobile Number (Optional)</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <!-- Submit details -->
+    <button mat-flat-button class="form-width"  color="accent" (click)="addOrEditUser()">{{title}}</button>
+</div>

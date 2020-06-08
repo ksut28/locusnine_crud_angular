@@ -1,0 +1,84 @@
+<div class="top-section">
+    <h2 mat-dialog-title>
+        <img src="assets/icons/ico_users.svg">
+        <span> Users </span>
+    </h2>
+
+    <div style="font-size: 10px">
+        <mat-form-field appearance="outline">
+            <mat-icon matSuffix>
+                <img src="assets/icons/ico_search.svg">
+            </mat-icon>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search" style="font-size: small;">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" (click)="showAddEditUserDialog()"
+            style="margin-left: 30px; padding-top: 5px;">
+            <img src="assets/icons/ico_add.svg">
+            Add User</button>
+    </div>
+</div>
+<mat-dialog-content>
+    <table mat-table [dataSource]="dataSource" class="table" matSort>
+
+        <!-- User Name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+            <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+        </ng-container>
+
+        <!-- User Email -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+            <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <!-- User Role Type -->
+        <ng-container matColumnDef="roleType">
+            <th mat-header-cell *matHeaderCellDef> ROLE TYPE </th>
+            <td mat-cell *matCellDef="let user"> {{user.roleType}} </td>
+        </ng-container>
+
+        <!-- User Status -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> STATUS </th>
+            <td mat-cell *matCellDef="let user">
+                <div *ngIf="user.status==='Active'">
+                    <img src="assets/icons/ico_active.svg"> &nbsp; {{user.status}}
+                </div>
+                <div *ngIf="user.status==='Pending'">
+                    <img src="assets/icons/ico_pending.svg"> &nbsp; {{user.status}}
+                </div>
+                <div *ngIf="user.status==='Inactive' ">
+                    <img src="assets/icons/ico_inactive.svg"> &nbsp;{{user.status}}
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <!-- For Deleting an User -->
+        <ng-container matColumnDef="deleteUser">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let user">
+                <div class="right">
+                    <img src="assets/icons/ico_delete.svg" (click)="deleteUser(user.id)">
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- For editing details of a user -->
+        <ng-container matColumnDef="editUser">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let user">
+                <div *ngIf="user.status==='Active' || user.status==='Pending'">
+                    <img src="assets/icons/ico_edit.svg" (click)="openEditUserDialog(user)" style="float: right;">
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+
+</mat-dialog-content>

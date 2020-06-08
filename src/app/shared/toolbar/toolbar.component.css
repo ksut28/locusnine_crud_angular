@@ -1,0 +1,21 @@
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #282828;
+}
+
+.mat-button.mat-accent {
+  background: #daa95a;
+}
+.align-right {
+  flex: 1 1 auto;
+}
+
+.mat-button {
+  margin-left:30px;
+}
+
+.space {
+  margin-left: 5px;
+}

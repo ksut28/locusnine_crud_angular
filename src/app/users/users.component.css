@@ -1,0 +1,40 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+.app-user {
+    width: 90%;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+}
+
+.mat-button {
+    width: 20px;
+  height: 1px;
+  line-height: 2px;
+  min-height: 10px;
+  font-size: 1px;
+}
+
+.mat-flat-button.mat-primary {
+    background: #ffaf2a;
+    color: #fff;
+  }
+
+  .right {
+      float: right;
+  }
+
+  .top-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
